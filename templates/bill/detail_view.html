@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+
+{% include 'navbar.html' %}
+
+
+{% block content %}
+
+    <!--================Home Banner Area =================-->
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="container">
+                <div class="banner_content text-center">
+                    <h2>Order Confirmation</h2>
+                    <div class="page_link">
+                        <a href="index.html">Home</a>
+                        <a href="confirmation.html">Confirmation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Home Banner Area =================-->
+
+    <!--================Order Details Area =================-->
+    <section class="order_details p_120">
+        <div class="container">
+            <div class="row order_d_inner">
+                <div class="col-lg-6">
+                    <div class="details_item">
+                        <h4>Order Info</h4>
+                        <ul class="list">
+                            <li>
+                                <a href="#">
+                                    <span>Order number</span> : {{ object.id }}</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>Name</span> : {{ name_of_user }}</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>Phone</span> : {{ object.phone }}</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>Payment method</span> : Check payments</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- <div class="col-lg-4">
+                    <div class="details_item">
+                        <h4>Billing Address</h4>
+                        <ul class="list">
+                            <li>
+                                <a href="#">
+                                    <span>Street</span> : 56/8</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>City</span> : Los Angeles</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>Country</span> : United States</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>Postcode </span> : 36952</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div> -->
+                <div class="col-lg-6">
+                    <div class="details_item">
+                        <h4>Shipping Address</h4>
+                        <ul class="list">
+                            <li>
+                                <a href="#">
+                                    <span>Street</span> : {{ object.street_address }}</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>District</span> : {{ object.district }}</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>City</span> : {{ object.city }}</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>Country</span> : {{ object.country }}</a>
+                            </li>
+                            {#							<li>#}
+                            {#								<a href="#">#}
+                            {#									<span>Postcode </span> : 36952</a>#}
+                            {#							</li>#}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="order_details_table">
+                    <h2>Order Details</h2>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">Product</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Date</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p>{{ object.product.name }}</p>
+                                    </td>
+                                    <td>
+                                        <p>{{ object.quantity }}</p>
+                                    </td>
+                                    <td>
+                                        <p>{{ object.get_final_price }}</p>
+                                    </td>
+                                    <td>
+                                        <p>{{ object.time_order }}</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Order Details Area =================-->
+
+{% endblock content %}
+
+{% include 'footer.html' %}

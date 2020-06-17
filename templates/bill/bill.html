@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!--================Home Banner Area =================-->
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="container">
+                <div class="banner_content text-center">
+                    <h2>Manage Order</h2>
+                    <div class="page_link">
+                        <a href="index.html">Home</a>
+                        <a href="category.html">Manage Order</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Home Banner Area =================-->
+    <div class="container">
+        <div class="order_details_table">
+            <h2>Order List</h2>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for obj in orders %}
+                        <tr>
+                            <td>
+                                <a href="{{ obj.get_absolute_url }}">{{ obj.product.name }}</a>
+                            </td>
+                            <td>
+                                <p>{{ obj.quantity }}</p>
+                            </td>
+                            <td>
+                                <p>{{ obj.get_final_price }}</p>
+                            </td>
+                            <td>
+                                <p>{{ obj.time_order }}</p>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+    
